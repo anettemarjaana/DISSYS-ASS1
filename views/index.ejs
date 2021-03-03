@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>CHAPP</title>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+
+  <body>
+    <div id="channel-container">
+      <% Object.keys(channels).forEach(channel => {%>
+        <div><%= channel %></div>
+        <a href="/<%= channel%>">Join</a>
+      <% }) %>
+    </div>
+    
+    <form action="/channel" method="POST">
+      <input name="channel" type="text" required>
+      <button type="submit">New channel</button>
+    </form>
+  </body>
+</html>
